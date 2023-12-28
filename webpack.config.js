@@ -11,7 +11,6 @@ module.exports = {
         rules: [{
             test: /\.yaml$/,
             use: [
-            { loader: 'json-loader' },
             { loader: 'yaml-loader' }
             ]
         },
@@ -20,6 +19,13 @@ module.exports = {
             use: [
             { loader: 'style-loader' },
             { loader: 'css-loader' },
+            { loader: 'postcss-loader',
+                options: {
+                    postcssOptions: {
+                    plugins: ['postcss-url']
+                    }
+                }
+            }
             ]
         }]
     },
